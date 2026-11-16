@@ -1,0 +1,14 @@
+{
+  "manifest_version": 2,
+  "name": "Ivar Paper Learning Export",
+  "version": "0.2.1",
+  "description": "Local-only paper annotations and Korean interpretation export",
+  "applications": {
+    "zotero": {
+      "id": "paper-learning-export@ivar.local",
+      "strict_min_version": "10.0",
+      "strict_max_version": "10.0.*",
+      "update_url": "https://raw.githubusercontent.com/swsquaredstudio/zotero-paper-learning/main/updates.json"
+    }
+  }
+}
