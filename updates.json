@@ -3,9 +3,9 @@
     "paper-learning-export@ivar.local": {
       "updates": [
         {
-          "version": "0.2.1",
-          "update_link": "https://github.com/swsquaredstudio/zotero-paper-learning/releases/download/v0.2.1/ivar-paper-learning-0.2.1.xpi",
-          "update_hash": "sha256:3aa0337c59e331778ca31664a76b20a35a39da89d1fd072a7f89d1f3fbbc38cc",
+          "version": "0.2.2",
+          "update_link": "https://github.com/swsquaredstudio/zotero-paper-learning/releases/download/v0.2.2/ivar-paper-learning-0.2.2.xpi",
+          "update_hash": "sha256:9e79c513b1b3febc2746db4aff7696f30c0fe4c60b11fc85b87f05e2b01bf4a0",
           "applications": {
             "zotero": {
               "strict_min_version": "10.0",
