@@ -56,7 +56,7 @@ PDF가 로컬에 없어도 학습 노트는 만들고 작성할 수 있습니다
 - 노트의 문단·목록·표 셀은 텍스트로 표현하고 원래 HTML을 JSON에도 보존합니다. 표의 시각적 배치, 수식 렌더링, 노트에 첨부한 이미지는 완전히 재현하지 않습니다. 특히 노트 이미지 파일은 ZIP에 별도 포함하지 않습니다.
 
 ## 검증
-27개 자동 테스트 통과: 색상/한글/해석 범위, 취소·중복 실행, 필수 manifest, chrome 등록·해제, 대화상자 입력, PDF 없음/복사 실패, ZIP 실패·CRC 오류, 기존 경로 충돌 등.
+28개 자동 테스트 통과: 색상/한글/해석 범위, 취소·중복 실행, 필수 manifest, chrome 등록·해제, 대화상자 입력, PDF 없음/복사 실패, ZIP 실패·CRC 오류, 기존 경로 충돌 등.
 
 별도 실제 임시 파일 테스트에서는 export 코드를 Node/Python 파일 어댑터와 실행하여 ZIP의 세 항목, 한국어 JSON, 원본 및 ZIP 안 PDF의 바이트 일치를 확인했습니다. **이것은 실제 Zotero GUI·네이티브 ZIP API 실행 테스트와 다릅니다.**
 
@@ -69,9 +69,10 @@ python build.py
 ```
 
 ## 업데이트
-업데이트 주소는 `https://raw.githubusercontent.com/swsquaredstudio/zotero-paper-learning/main/updates.json`으로 설정했습니다. 이번 작업은 로컬 준비이며 GitHub 피드나 릴리스를 공개하지 않았으므로 자동 업데이트는 아직 작동 검증 전입니다. 업데이트 확인 시 GitHub에 연결하지만 논문·주석 내용은 전송하지 않습니다. 0.2.0은 이전 예약 주소를 사용하므로 첫 피드 지원 버전을 한 번 수동 설치해야 합니다.
+업데이트 주소는 `https://raw.githubusercontent.com/swsquaredstudio/zotero-paper-learning/main/updates.json`으로 설정했습니다. [0.2.1 베타 릴리스](https://github.com/swsquaredstudio/zotero-paper-learning/releases/tag/v0.2.1)와 실험용 업데이트 피드를 공개했습니다. 피드 다운로드 및 파일 무결성 확인과 실제 Zotero 자동 업그레이드는 별개이며, 실제 업그레이드는 아직 검증 전입니다. 업데이트 확인 시 GitHub에 연결하지만 논문·주석 내용은 전송하지 않습니다. 0.2.0은 이전 예약 주소를 사용하므로 첫 피드 지원 버전을 한 번 수동 설치해야 합니다.
 
 ## 변경 이력
+- 0.2.1 베타: MIT 라이선스, 공개 업데이트 피드, 안전한 소스 패키징 및 버전 표기 수정.
 - 0.2.0: Zotero 네이티브 학습 노트 생성/재열기, 선택 노트 내보내기, 내보내기 요약, 마지막 폴더 기억 및 폴더 열기.
 - 0.1.4: 원문 PDF 로컬 복사, 단일 ZIP, 필수 파일·CRC 검사, 누락/실패 처리 추가.
 - 0.1.3: chrome 등록 및 XUL window 기반 대화상자, 영어 입력 UI.
