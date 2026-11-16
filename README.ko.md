@@ -1,11 +1,11 @@
-# Ivar Paper Learning Export 0.2.1
+# Ivar Paper Learning Export 0.2.2
 
-**베타 버전입니다.** Zotero 10.0.x용 로컬 논문 학습 패키지 내보내기 확장입니다. **이번 0.2.1의 실제 Zotero 기동·내보내기는 아직 검증 전입니다.** 자동 테스트와 파일/ZIP 검증 결과는 아래에 구분했습니다.
+**베타 버전입니다.** Zotero 10.0.x용 로컬 논문 학습 패키지 내보내기 확장입니다. **이번 0.2.2의 실제 Zotero 기동·내보내기는 아직 검증 전입니다.** 자동 테스트와 파일/ZIP 검증 결과는 아래에 구분했습니다.
 
 ## 사용
-1. Zotero 도구 → 플러그인 → 파일에서 플러그인 설치에서 `ivar-paper-learning-0.2.1.xpi`를 선택하십시오. 같은 플러그인의 새 버전입니다. 이번 제작 과정에서는 설치하지 않았습니다.
+1. Zotero 도구 → 플러그인 → 파일에서 플러그인 설치에서 `ivar-paper-learning-0.2.2.xpi`를 선택하십시오. 같은 플러그인의 새 버전입니다. 이번 제작 과정에서는 설치하지 않았습니다.
 2. 라이브러리에서 논문, 연결된 PDF 또는 노트 하나를 선택하고 도구 → **Open Learning Note…**를 누르십시오.
-3. 기존 노트를 골라 열거나, Whole paper/Section 및 Rough summary/Detailed translation을 정하고 **Create and open note**를 누르십시오. 새 노트는 논문 아래 생성되며 기존 노트를 덮어쓰지 않습니다.
+3. 첫 영역에서 기존 노트를 직접 선택하고 **Open selected note**를 누르십시오. 새 노트가 필요할 때만 두 번째 **Create a separate new note…** 영역을 펼치고 유형·범위를 정한 뒤 **Create separate note and open**을 누르십시오. 새 노트 옵션은 위에서 선택한 기존 노트에 적용되지 않습니다. 새 노트는 논문 아래 생성되며 기존 노트를 덮어쓰지 않습니다.
 4. Zotero 기본 노트 창에서 계속 작성하십시오. 입력 내용은 Zotero의 기본 저장·동기화 설정을 따릅니다. 플러그인 삭제 후에도 일반 노트로 남습니다.
 5. 내보낼 때 **Export Paper Learning Package…**를 누르고 포함할 노트를 체크하십시오. 플러그인이 만든 `ivar-learning` 태그 노트만 기본 선택되고 다른 메모는 자동 포함하지 않습니다.
 6. PDF·주석 수·노트 목록을 확인하고 저장 폴더를 고르면 ZIP이 생성됩니다. 마지막 저장 폴더를 기억합니다. 취소해도 Zotero 노트는 지워지지 않습니다.
@@ -56,7 +56,7 @@ PDF가 로컬에 없어도 학습 노트는 만들고 작성할 수 있습니다
 - 노트의 문단·목록·표 셀은 텍스트로 표현하고 원래 HTML을 JSON에도 보존합니다. 표의 시각적 배치, 수식 렌더링, 노트에 첨부한 이미지는 완전히 재현하지 않습니다. 특히 노트 이미지 파일은 ZIP에 별도 포함하지 않습니다.
 
 ## 검증
-28개 자동 테스트 통과: 색상/한글/해석 범위, 취소·중복 실행, 필수 manifest, chrome 등록·해제, 대화상자 입력, PDF 없음/복사 실패, ZIP 실패·CRC 오류, 기존 경로 충돌 등.
+33개 자동 테스트 통과: 색상/한글/해석 범위, 취소·중복 실행, 필수 manifest, chrome 등록·해제, 대화상자 입력, PDF 없음/복사 실패, ZIP 실패·CRC 오류, 기존 경로 충돌 등.
 
 별도 실제 임시 파일 테스트에서는 export 코드를 Node/Python 파일 어댑터와 실행하여 ZIP의 세 항목, 한국어 JSON, 원본 및 ZIP 안 PDF의 바이트 일치를 확인했습니다. **이것은 실제 Zotero GUI·네이티브 ZIP API 실행 테스트와 다릅니다.**
 
@@ -69,10 +69,10 @@ python build.py
 ```
 
 ## 업데이트
-업데이트 주소는 `https://raw.githubusercontent.com/swsquaredstudio/zotero-paper-learning/main/updates.json`으로 설정했습니다. [0.2.1 베타 릴리스](https://github.com/swsquaredstudio/zotero-paper-learning/releases/tag/v0.2.1)와 실험용 업데이트 피드를 공개했습니다. 피드 다운로드 및 파일 무결성 확인과 실제 Zotero 자동 업그레이드는 별개이며, 실제 업그레이드는 아직 검증 전입니다. 업데이트 확인 시 GitHub에 연결하지만 논문·주석 내용은 전송하지 않습니다. 0.2.0은 이전 예약 주소를 사용하므로 첫 피드 지원 버전을 한 번 수동 설치해야 합니다.
+업데이트 주소는 `https://raw.githubusercontent.com/swsquaredstudio/zotero-paper-learning/main/updates.json`으로 설정했습니다. [0.2.2 베타 릴리스](https://github.com/swsquaredstudio/zotero-paper-learning/releases/tag/v0.2.2)와 실험용 업데이트 피드를 공개했습니다. 피드 다운로드 및 파일 무결성 확인과 실제 Zotero 자동 업그레이드는 별개이며, 실제 업그레이드는 아직 검증 전입니다. 업데이트 확인 시 GitHub에 연결하지만 논문·주석 내용은 전송하지 않습니다. 0.2.0은 이전 예약 주소를 사용하므로 첫 피드 지원 버전을 한 번 수동 설치해야 합니다.
 
 ## 변경 이력
-- 0.2.1 베타: MIT 라이선스, 공개 업데이트 피드, 안전한 소스 패키징 및 버전 표기 수정.
+- 0.2.2 베타: MIT 라이선스, 공개 업데이트 피드, 안전한 소스 패키징 및 버전 표기 수정.
 - 0.2.0: Zotero 네이티브 학습 노트 생성/재열기, 선택 노트 내보내기, 내보내기 요약, 마지막 폴더 기억 및 폴더 열기.
 - 0.1.4: 원문 PDF 로컬 복사, 단일 ZIP, 필수 파일·CRC 검사, 누락/실패 처리 추가.
 - 0.1.3: chrome 등록 및 XUL window 기반 대화상자, 영어 입력 UI.

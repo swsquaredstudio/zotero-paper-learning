@@ -2,7 +2,7 @@
 
 A Zotero 10.0.x plugin for keeping paper-learning notes in Zotero and exporting a local package containing the source PDF, selected notes, and annotations.
 
-**Status:** beta / experimental. The 0.2.1 preparation source passes 28 mocked/unit tests. Native Zotero installation, note persistence, editor flushing, and ZIP creation still need end-to-end validation. Use the [0.2.1 beta release](https://github.com/swsquaredstudio/zotero-paper-learning/releases/tag/v0.2.1); it is not a stable release.
+**Status:** beta / experimental. The 0.2.2 preparation source passes 33 mocked/unit tests. Native Zotero installation, note persistence, editor flushing, and ZIP creation still need end-to-end validation. Use the [0.2.2 beta release](https://github.com/swsquaredstudio/zotero-paper-learning/releases/tag/v0.2.2); it is not a stable release.
 
 [한국어 사용 안내](README.ko.md) · [Changelog](CHANGELOG.md) · [Release checklist](docs/RELEASING.md)
 
@@ -10,7 +10,7 @@ A Zotero 10.0.x plugin for keeping paper-learning notes in Zotero and exporting 
 
 1. Install the versioned `.xpi` using Zotero **Tools → Plugins → Install Add-on From File**.
 2. Select a paper, attached PDF, or child note and use **Tools → Open Learning Note…**.
-3. Open an existing note or create a whole-paper/section learning note. Write in Zotero's native editor. Notes remain ordinary Zotero notes if this plugin is removed.
+3. Select a note in the first card to open it, or expand the second card to create a separate whole-paper/section learning note. Creation options never change existing notes. Write in Zotero's native editor. Notes remain ordinary Zotero notes if this plugin is removed.
 4. Use **Tools → Export Paper Learning Package…** and choose which notes to include. Only notes tagged `ivar-learning` are selected by default.
 5. Choose an output directory. Share the resulting `paper-learning.zip` only after reviewing its contents and your permission to share the paper.
 

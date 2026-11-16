@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Ivar Paper Learning Export",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Local-only paper annotations and Korean interpretation export",
   "applications": {
     "zotero": {

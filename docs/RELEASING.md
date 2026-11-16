@@ -4,7 +4,7 @@ No repository, release, or update feed is published by these scripts.
 
 1. The confirmed target is `swsquaredstudio/zotero-paper-learning`. The owner approved MIT; LICENSE is included in source and XPI.
 2. Inspect all allowlisted files for private data and verify third-party code provenance. Do not include real PDFs or exports. Check Git history too if importing an existing repository.
-3. Keep plugin ID `paper-learning-export@ivar.local` stable to update the existing installation. The preparation version is 0.2.1.
+3. Keep plugin ID `paper-learning-export@ivar.local` stable to update the existing installation. The current beta version is 0.2.2.
 4. The configured `applications.zotero.update_url` is `https://raw.githubusercontent.com/swsquaredstudio/zotero-paper-learning/main/updates.json`. Do not advertise an uncreated endpoint as working.
 5. The manifest test and both READMEs reflect the configured endpoint. Zotero update checks will contact GitHub; document that distinction from paper uploads.
 6. Run `node --test tests/*.cjs`, build with `python3 build.py`, and inspect the XPI/source archive.

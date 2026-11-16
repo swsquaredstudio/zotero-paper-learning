@@ -44,7 +44,7 @@ test('manifest contains Zotero required extension fields and narrow target',()=>
  assert.equal(new URL(z.update_url).protocol,'https:');
  assert.equal(z.update_url,'https://raw.githubusercontent.com/swsquaredstudio/zotero-paper-learning/main/updates.json');
  assert.equal(z.id,'paper-learning-export@ivar.local');
- assert.equal(m.version,'0.2.1');
+ assert.equal(m.version,'0.2.2');
 });
 test('bootstrap registers and releases chrome resources',async()=>{
  let registration, destroyed=false, adds=0, removes=0;
@@ -104,7 +104,7 @@ test('snapshot includes selected note only and flushes pending native edits',asy
 test('moved or deleted note aborts rather than exporting another note',async()=>{const x=notesSetup();await assert.rejects(x.api.snapshot(x.parent,['UNKNOWN']));assert.equal(x.flushes,0);});
 test('section name required before creating a note',async()=>{const x=notesSetup();await assert.rejects(x.api.create(x.parent,{scope:'section',section:' '}));assert.equal(x.created.length,0);});
 function selectorSetup(mode) {
- const ids=['heading','paper','description','create','notes','status','primary','cancel','scope','section','kind','new'];
+ const ids=['existing-title','existing-help','create-status','heading','paper','description','create','notes','status','primary','cancel','scope','section','kind','new'];
  const make=()=>({value:'',events:{},children:[],addEventListener(e,f){this.events[e]=f;},appendChild(c){this.children.push(c);},focus(){this.focused=true;}});
  const elements=Object.fromEntries(ids.map(id=>[id,make()]));elements.scope.value='whole';elements.kind.value='summary';
  let resolved='unset';const events={};const window={arguments:[{mode,title:'Paper',annotationCount:4,notes:[{key:'L1',title:'학습 노트',learning:true},{key:'PRIVATE',title:'다른 메모',learning:false}],resolve:x=>resolved=x}],close(){},addEventListener:(e,f)=>events[e]=f};
@@ -119,4 +119,32 @@ test('create note requires section and preserves Korean section label',()=>{cons
 test('export generator matches manifest version',()=>{
  const manifest=JSON.parse(fs.readFileSync(require.resolve('../src/manifest.json'),'utf8'));
  assert.equal(core.build({},[],{}).generator,'Ivar Paper Learning Export '+manifest.version);
+});
+
+test('existing note is never selected or opened implicitly',()=>{
+ const x=selectorSetup('notes');assert.equal(x.elements.primary.disabled,true);
+ x.elements.primary.events.click();assert.equal(x.result,'unset');
+});
+test('opening an existing note ignores new-note options',()=>{
+ const x=selectorSetup('notes');
+ const radio=x.elements.notes.children[1].children[0];
+ radio.checked=true;radio.events.change();assert.equal(x.elements.primary.disabled,false);
+ x.elements.kind.value='translation';x.elements.scope.value='section';x.elements.section.value='New scope';
+ x.elements.primary.events.click();
+ assert.equal(x.result.action,'open');assert.deepEqual(Array.from(x.result.noteKeys),['PRIVATE']);
+ assert.equal(x.result.kind,undefined);assert.equal(x.result.scope,undefined);
+});
+test('new note action stays separate from selected existing note',()=>{
+ const x=selectorSetup('notes');x.elements.notes.children[0].children[0].checked=true;
+ x.elements.new.events.click();assert.equal(x.result.action,'create');assert.equal(x.result.noteKeys,undefined);
+});
+test('creation controls are collapsed and action buttons are explicit',()=>{
+ const xml=fs.readFileSync(require.resolve('../src/dialog.xhtml'),'utf8');
+ assert.match(xml,/<html:details id="create"[^>]*>/);
+ assert.doesNotMatch(xml,/<html:details[^>]*\sopen=/);
+ for(const id of ['primary','new','cancel']) assert.match(xml,new RegExp('<html:button id="'+id+'" type="button"'));
+});
+test('close without action resolves cancellation once',()=>{
+ const x=selectorSetup('notes');x.events.unload();assert.equal(x.result,null);
+ x.elements.new.events.click();assert.equal(x.result,null);
 });

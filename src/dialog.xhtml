@@ -1,20 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
-<window xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" xmlns:html="http://www.w3.org/1999/xhtml" id="ivar-paper-learning-window" title="Paper Learning" width="700" height="680" orient="vertical">
+<window xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" xmlns:html="http://www.w3.org/1999/xhtml" id="ivar-paper-learning-window" title="Paper Learning" width="740" height="720" orient="vertical">
 <script type="application/javascript" src="chrome://ivar-paper-learning/content/dialog.js"/>
 <html:style>
-#ivar-paper-learning-window{display:flex;flex-direction:column}.content{font:15px sans-serif;padding:24px;overflow:auto;flex:1;color:#172235;background:#f6f8fc}label{display:block;margin:12px 0}select,input,button{font:inherit;padding:8px}button{margin:10px 8px 0 0}p{line-height:1.5}.note{padding:8px;border-bottom:1px solid #ccd3df}small{display:block;color:#44546a}#notes{max-height:230px;overflow:auto}fieldset{margin-top:20px} [hidden]{display:none!important}
+#ivar-paper-learning-window{display:flex;flex-direction:column}
+.content{font:15px sans-serif;padding:24px;overflow:auto;flex:1;color:#172235;background:#f6f8fc}
+h2{margin-top:0}p{line-height:1.5}label{display:block;margin:12px 0}
+select,input,button{font:inherit;padding:8px}button{margin:10px 8px 0 0}
+button:disabled{opacity:.55}button:focus-visible,summary:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #245dba;outline-offset:2px}
+.note{padding:8px;border-bottom:1px solid #ccd3df}
+small{display:block;color:#44546a;line-height:1.5}#notes{max-height:220px;overflow:auto}
+.card{background:white;border:1px solid #b9c8dc;border-radius:8px;padding:18px;margin:18px 0}
+.card h3{margin:0 0 8px}.card p{margin:8px 0}
+#create{border-color:#a9bcb2;background:#f6fbf8}summary{font-weight:bold;cursor:pointer;padding:4px}
+#create-body{padding-top:12px}#primary{background:#245dba;color:white;border:1px solid #245dba;border-radius:5px}
+#new{background:#fff;border:1px solid #496a58;border-radius:5px}
+#create-status{color:#9e2727}footer{border-top:1px solid #ccd3df;padding-top:12px}
+[hidden]{display:none!important}
 </html:style>
 <html:div class="content">
 <html:h2 id="heading">Paper Learning</html:h2><html:p id="paper"/><html:p id="description"/>
+<html:section class="card" aria-labelledby="existing-title">
+<html:h3 id="existing-title">1. Continue an existing note</html:h3>
+<html:small id="existing-help">Select a note to continue writing.</html:small>
 <html:div id="notes"/>
 <html:p id="status" role="status">Loading…</html:p>
-<html:button id="primary" disabled="disabled">Continue</html:button><html:button id="cancel">Cancel</html:button>
-<html:fieldset id="create" hidden="hidden"><html:legend>Create a new learning note</html:legend>
-<html:label>Task <html:select id="kind"><html:option value="summary">Rough summary</html:option><html:option value="translation">Detailed translation</html:option></html:select></html:label>
-<html:label>Scope <html:select id="scope"><html:option value="whole">Whole paper</html:option><html:option value="section">Section</html:option></html:select></html:label>
-<html:label>Section <html:input id="section" disabled="disabled" placeholder="Introduction, Methods, etc."/></html:label>
-<html:button id="new">Create and open note</html:button><html:small>Existing notes will not be overwritten. Notes use Zotero's normal saving and sync settings.</html:small>
-</html:fieldset>
-<html:small>Drafts live in Zotero notes, not in this dialog. Cancelling an export does not delete them.</html:small>
+<html:button id="primary" type="button" disabled="disabled">Open selected note</html:button>
+</html:section>
+<html:details id="create" class="card" hidden="hidden">
+<html:summary>2. Create a separate new note…</html:summary>
+<html:div id="create-body">
+<html:p>These options apply only to the new note created with the button below. They do not rename, convert, or overwrite the note selected above.</html:p>
+<html:label>New note type <html:select id="kind"><html:option value="summary">Rough summary</html:option><html:option value="translation">Detailed translation</html:option></html:select></html:label>
+<html:label>New note scope <html:select id="scope"><html:option value="whole">Whole paper</html:option><html:option value="section">Section</html:option></html:select></html:label>
+<html:label>Section name <html:input id="section" disabled="disabled" placeholder="Introduction, Methods, etc."/></html:label>
+<html:p id="create-status" role="status"/>
+<html:button id="new" type="button">Create separate note and open</html:button>
+<html:small>A new child note will be added to this paper. Existing notes stay unchanged.</html:small>
+</html:div>
+</html:details>
+<html:footer><html:button id="cancel" type="button">Cancel</html:button>
+<html:small>Writing is saved in Zotero's native note editor. Closing this dialog does not delete notes.</html:small></html:footer>
 </html:div></window>

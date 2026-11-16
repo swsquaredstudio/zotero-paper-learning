@@ -1,9 +1,17 @@
 # Changelog
 
+## 0.2.2 (beta)
+
+- Separate existing-note opening from new-note creation into clearly labeled cards.
+- Collapse new-note controls by default and explain they never modify selected notes.
+- Require explicit existing-note selection; no implicit open action.
+- Preserve cancellation, export selection, and native Zotero note editing.
+- 33 automated tests pass; native Zotero UI and IME behavior remain unverified.
+
 ## 0.2.1 (beta)
 
 - Prepare English README, standalone changelog, release checklist, and privacy-safe packaging for public distribution.
-- Add an offline update-manifest generator. Configure the swsquaredstudio/zotero-paper-learning feed and preserve the existing plugin ID. MIT licensing is approved; native Zotero validation remains pending; the experimental feed targets the beta release; actual Zotero upgrades remain unverified.
+- Add an offline update-manifest generator. Configure the swsquaredstudio/zotero-paper-learning feed and preserve the existing plugin ID. MIT licensing is approved; native Zotero validation remains pending; the experimental update feed and beta release were published.
 
 - Include MIT license in source and installable XPI.
 - Correct exported generator version to match 0.2.1.

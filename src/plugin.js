@@ -26,7 +26,7 @@ var IvarPaperExport = {
   },
   remove(win) { for (const id of ['ivar-paper-export', 'ivar-paper-notes']) win.document.getElementById(id)?.remove(); },
   choose(win, data) {
-    return new Promise(resolve => win.openDialog('chrome://ivar-paper-learning/content/dialog.xhtml', 'ivar-paper-dialog-' + data.mode, 'chrome,centerscreen,resizable,dialog,width=700,height=680', { ...data, resolve }));
+    return new Promise(resolve => win.openDialog('chrome://ivar-paper-learning/content/dialog.xhtml', 'ivar-paper-dialog-' + data.mode, 'chrome,centerscreen,resizable,dialog,width=740,height=720', { ...data, resolve }));
   },
   async openNotes(win) {
     if (this.notesBusy) return;
