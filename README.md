@@ -2,7 +2,7 @@
 
 A Zotero 10.0.x plugin for keeping paper-learning notes in Zotero and exporting a local package containing the source PDF, selected notes, and annotations.
 
-**Status:** beta / experimental. The 0.2.1 preparation source passes 28 mocked/unit tests. Native Zotero installation, note persistence, editor flushing, and ZIP creation still need end-to-end validation. This repository preparation is not a published release.
+**Status:** beta / experimental. The 0.2.1 preparation source passes 28 mocked/unit tests. Native Zotero installation, note persistence, editor flushing, and ZIP creation still need end-to-end validation. Use the [0.2.1 beta release](https://github.com/swsquaredstudio/zotero-paper-learning/releases/tag/v0.2.1); it is not a stable release.
 
 [한국어 사용 안내](README.ko.md) · [Changelog](CHANGELOG.md) · [Release checklist](docs/RELEASING.md)
 
@@ -42,7 +42,7 @@ Other colors are retained. The UI supports entering Korean; generated review gui
 - Zotero annotations are not newly embedded in the copied PDF. They are stored separately in Markdown/JSON.
 - Note images and separate image/ink annotation assets are not included. Tables and math may lose visual formatting in Markdown; original note HTML is retained in JSON.
 - Section labels do not automatically filter annotations by section. Existing `learning.md` interpretations are not imported into new Zotero notes.
-- The update feed is configured as `https://raw.githubusercontent.com/swsquaredstudio/zotero-paper-learning/main/updates.json`. This preparation has not published that feed or a release, so automatic updates are not yet verified or available from this work. Zotero update checks contact GitHub; paper content is not uploaded. Users of 0.2.0 must manually install the first feed-enabled version once.
+- The update feed is configured as `https://raw.githubusercontent.com/swsquaredstudio/zotero-paper-learning/main/updates.json`. This experimental feed points to the beta release. Feed availability and package integrity are verified separately from an actual Zotero upgrade, which remains unverified. Zotero update checks contact GitHub; paper content is not uploaded. Users of 0.2.0 must manually install the first feed-enabled version once.
 
 ## Development
 
