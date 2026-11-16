@@ -1,9 +1,9 @@
 # Changelog
 
-## 0.2.1 (beta, publication pending)
+## 0.2.1 (beta)
 
 - Prepare English README, standalone changelog, release checklist, and privacy-safe packaging for public distribution.
-- Add an offline update-manifest generator. Configure the swsquaredstudio/zotero-paper-learning feed and preserve the existing plugin ID. MIT licensing is approved; native Zotero validation remains pending; no update is published by this preparation.
+- Add an offline update-manifest generator. Configure the swsquaredstudio/zotero-paper-learning feed and preserve the existing plugin ID. MIT licensing is approved; native Zotero validation remains pending; the experimental feed targets the beta release; actual Zotero upgrades remain unverified.
 
 - Include MIT license in source and installable XPI.
 - Correct exported generator version to match 0.2.1.
